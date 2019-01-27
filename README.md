@@ -32,7 +32,7 @@ python中数值类型，int，float，bool，e记法等<br>
 标志<br>
 基本操作(创建，append( )，pop( ) ,del( ), 深浅拷贝）<br>
 列表相关方法<br>
-#### 2.元组<br>
+### 2.元组<br>
 标志<br>
 基本操作（创建及不可变性）<br>
 提升<br>
