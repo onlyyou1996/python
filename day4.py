@@ -1,4 +1,4 @@
-'''
+﻿'''
 【Day 4】
 判断语句（要求掌握多条件判断）
 循环语句
@@ -182,17 +182,16 @@ while flag!=2 :
             continue 
     alist = random.sample(range(0,9),3) #random.sample()生成不相同的随机数
     print(alist)
-    if num==alist[1]:
+    if num==alist[0]:
         print('荣获第一名')
-    elif num==alist[2]:
+    elif num==alist[1]:
         print('荣获第二名')
-    elif num==alist[3]:
+    elif num==alist[2]:
         print('荣获第三名')
     else:
         print('未得奖')
     flag = input('输入1重新开始游戏，输入2则结束游戏')
     flag = int(flag)
-
 
 
 
