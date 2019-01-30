@@ -1,4 +1,4 @@
-﻿'''
+'''
 【Day 5】
 正则表达式re
 os模块
@@ -227,33 +227,17 @@ else:
     print(n,"这不是一个邮箱")
 
 #对http://www.baidu.com 进行请求，并用正则化匹配图片内容。将百度图标爬取下来保存至本地
-#coding=utf-8
-
-#urllib模块提供了读取Web页面数据的接口
-import urllib.request
-#re模块主要包含了正则表达式
 import re
 import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
-#定义一个getHtml()函数
-def getHtml(url):
-    page = urllib.request.urlopen(url)  #urllib.request.urlopen()方法用于打开一个URL地址
-    html = page.read() #read()方法用于读取URL上的数据
-    html = html.decode('utf-8') #python3
-    return html
-
-def getImg(html):
-    reg = r'src="(.+?\.png)"'    #正则表达式，得到图片地址
-    imgre = re.compile(reg)     #re.compile() 可以把正则表达式编译成一个正则表达式对象.   
-    imglist = re.findall(imgre,html)      #re.findall() 方法读取html 中包含 imgre（正则表达式）的数据
-    #把筛选的图片地址通过for循环遍历并保存到本地
-    #核心是urllib.request.urlretrieve()方法,直接将远程数据下载到本地，图片通过x依次递增命名
-    x = 0
-
-    for imgurl in imglist:
-        urllib.request.urlretrieve(imgurl,'D:\E\%s.png' % x)
-        x += 1
-
-
-html = getHtml("https://www.baidu.com/")
-print(getImg(html))
+import urllib.request
+response = urllib.request.urlopen("http://www.baidu.com")
+response = response.read()
+response = response.decode('utf-8') #python3
+reg = r'src="(.+?\.png)"'    #正则表达式，得到图片地址
+imgre = re.compile(reg)      #re.compile() 可以把正则表达式编译成一个正则表达式对象.   
+imglist = re.findall(imgre,response)      #re.findall() 方法读取response 中包含 imgre（正则表达式）的数据
+x = 0
+for imgurl in imglist:
+    imgurl='https:'+imgurl
+    urllib.request.urlretrieve(imgurl,'D:\%s.png' % x)
+    x += 1
