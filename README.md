@@ -87,3 +87,7 @@ python中数值类型，int，float，bool，e记法等<br>
 实现random.sample方法<br>
 实现Max方法<br>
 实现判断两个字符串是否相等的方法<br>
+## 【【Day 7】
+1. 啥是佩奇代码复现<br>
+2. 飞机大战游戏<br>
+【ps：2选1】<br>
